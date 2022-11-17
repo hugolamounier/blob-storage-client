@@ -10,6 +10,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Core.BlobStorageClient.Interfaces;
 using Core.BlobStorageClient.Models;
+using Microsoft.Extensions.Options;
 
 namespace Core.BlobStorageClient;
 
@@ -19,10 +20,10 @@ public class BlobStorageClient: IBlobStorageClient
     private readonly BlobServiceClient _blobServiceClient;
     private readonly Uri _blobStorageUri;
     
-    public BlobStorageClient(BlobStorageClientOptions options)
+    public BlobStorageClient(IOptions<BlobStorageClientOptions> options)
     {
-        _options = options;
-        _blobServiceClient = new BlobServiceClient(options.AzureBlobStorageConnectionString);
+        _options = options.Value;
+        _blobServiceClient = new BlobServiceClient(_options.AzureBlobStorageConnectionString);
         _blobStorageUri = _blobServiceClient.Uri;
     }
     
@@ -113,11 +114,6 @@ public class BlobStorageClient: IBlobStorageClient
     public Uri GetStorageUri()
     {
         return _blobStorageUri;
-    }
-
-    public int GetMaxConcurrency()
-    {
-        return _options.MaximumConcurrency;
     }
 
     private static void CheckContainerName(ref IEnumerable<BlobFileUpload> filesToUpload, ref string containerName)

@@ -6,12 +6,12 @@ using Core.BlobStorageClient.Models;
 namespace Core.BlobStorageClient.Interfaces;
 
 /// <summary>
-/// Cliente do Blob Storage
+/// Blob Storage Client
 /// </summary>
 public interface IBlobStorageClient
 {
     /// <summary>
-    /// Faz o upload de arquivos para o Blob Storage
+    /// Upload files to the blob storage.
     /// </summary>
     /// <param name="blobFiles"></param>
     /// <param name="containerName">Nome do container</param>
@@ -19,26 +19,20 @@ public interface IBlobStorageClient
     Task<IEnumerable<FileUploaded>> UploadFilesAsync(IEnumerable<BlobFileUpload> blobFiles, string containerName);
     
     /// <summary>
-    /// Deleta arquivos do Blob se existirem
+    /// Delete blob files if they exist.
     /// </summary>
     /// <param name="uris"></param>
     /// <returns></returns>
     Task<bool> DeleteFilesAsync(IEnumerable<Uri> uris);
     
     /// <summary>
-    /// Retorna o URI do Blob Storage
+    /// Retrieves the Storage URI.
     /// </summary>
     /// <returns></returns>
     Uri GetStorageUri();
 
     /// <summary>
-    /// Recuperar o número máximo de concorrência do cliente
-    /// </summary>
-    /// <returns></returns>
-    int GetMaxConcurrency();
-    
-    /// <summary>
-    /// Retorna arquivos do Blob Storage se existirem, caso contrário, retorna Stream.Null no Stream.
+    /// Gets blob files if they exist, otherwise, returns Stream.Null on the BlobFile Stream attribute.
     /// </summary>
     /// <param name="uris"></param>
     /// <returns></returns>
