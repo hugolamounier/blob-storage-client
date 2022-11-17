@@ -7,12 +7,13 @@ namespace Core.BlobStorageClient.Models;
 /// </summary>
 public abstract class BlobStorageClientOptions
 {
-    protected BlobStorageClientOptions(string azureBlobStorageConnectionString, int maximumConcurrency = 2, string? replaceBlobHostTo = null)
+    protected BlobStorageClientOptions(string azureBlobStorageConnectionString, string[]? allowedExtensions = null, string? replaceBlobHostTo = null, int maximumConcurrency = 2)
     {
         if (string.IsNullOrWhiteSpace(azureBlobStorageConnectionString))
             throw new ArgumentException("The value for this attribute cannot be null or empty", nameof(AzureBlobStorageConnectionString));
 
         AzureBlobStorageConnectionString = azureBlobStorageConnectionString;
+        AllowedExtensions = allowedExtensions;
         MaximumConcurrency = maximumConcurrency;
         ReplaceBlobHostTo = replaceBlobHostTo;
     }
@@ -31,5 +32,7 @@ public abstract class BlobStorageClientOptions
     /// Optional. If set, it will replace the uploaded blob storage file URI Host to the one specified.
     /// </summary>
     public string? ReplaceBlobHostTo { get; set; }
+    
+    public string[]? AllowedExtensions { get; set; }
     
 }

@@ -28,6 +28,7 @@ public class BlobStorageClient: IBlobStorageClient
     
     public async Task<IEnumerable<FileUploaded>> UploadFilesAsync(IEnumerable<BlobFileUpload> blobFiles, string containerName)
     {
+        ValidateAllowedExtensions(blobFiles);
         CheckContainerName(ref blobFiles, ref containerName);
         var blobContainer = _blobServiceClient.GetBlobContainerClient(containerName);
         await blobContainer.CreateIfNotExistsAsync(PublicAccessType.Blob);
@@ -177,4 +178,21 @@ public class BlobStorageClient: IBlobStorageClient
 
         return file;
     });
+
+    private void ValidateAllowedExtensions(IEnumerable<BlobFileUpload> blobFiles)
+    {
+        if (!_options.AllowedExtensions?.Any() ?? true)
+            return;
+
+        var exceptions = new ConcurrentBag<InvalidOperationException>();
+
+        blobFiles.AsParallel().ForAll(blobFile =>
+        {
+            if(!_options.AllowedExtensions.Contains(Path.GetExtension(blobFile.FileName)))
+                exceptions.Add(new InvalidOperationException($"The file {blobFile.FileName} extension is not allowed. You can upload files with the following extensions: {string.Join(",", _options.AllowedExtensions)}"));
+        });
+
+        if (exceptions.Any())
+            throw new AggregateException("No files were uploaded.", exceptions);
+    }
 }
