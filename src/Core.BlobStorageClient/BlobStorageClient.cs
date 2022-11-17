@@ -8,11 +8,12 @@ using System.Threading.Tasks.Dataflow;
 using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Core.BlobStorageClient.Interfaces;
 using Core.BlobStorageClient.Models;
 
 namespace Core.BlobStorageClient;
 
-public class BlobStorageClient
+public class BlobStorageClient: IBlobStorageClient
 {
     private readonly BlobStorageClientOptions _options;
     private readonly BlobServiceClient _blobServiceClient;
