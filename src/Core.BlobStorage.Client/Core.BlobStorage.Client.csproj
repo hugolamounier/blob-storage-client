@@ -2,6 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <PackageId>Core.BlobStorage.Cleint</PackageId>
+        <VersionPrefix>0.0.1</VersionPrefix>
+        <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+        <Authors>Hugo Lamounier</Authors>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
