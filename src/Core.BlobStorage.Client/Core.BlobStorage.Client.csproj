@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Authors>Hugo Lamounier</Authors>
+        <PackageProjectUrl>https://github.com/hugolamounier/blob-storage-client</PackageProjectUrl>
         <RepositoryUrl>https://github.com/hugolamounier/blob-storage-client</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>blob storage client</PackageTags>
@@ -11,6 +12,7 @@
         <FileVersion>1.0.0</FileVersion>
         <VersionPrefix>1.0.0</VersionPrefix>
         <LangVersion>latest</LangVersion>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
