@@ -1,10 +1,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Core.BlobStorageClient.Interfaces;
-using Core.BlobStorageClient.Models;
+using Core.BlobStorage.Client.Interfaces;
+using Core.BlobStorage.Client.Models;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.BlobStorageClient.Extensions;
+namespace Core.BlobStorage.Client.Extensions;
 
 public static class BlobStorageClientServiceCollectionExtensions
 {

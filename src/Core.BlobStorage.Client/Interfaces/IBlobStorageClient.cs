@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.BlobStorageClient.Models;
+using Core.BlobStorage.Client.Models;
 
-namespace Core.BlobStorageClient.Interfaces;
+namespace Core.BlobStorage.Client.Interfaces;
 
 /// <summary>
 /// Blob Storage Client

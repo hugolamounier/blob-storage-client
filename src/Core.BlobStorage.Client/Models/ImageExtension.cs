@@ -1,4 +1,4 @@
-namespace Core.BlobStorageClient.Models;
+namespace Core.BlobStorage.Client.Models;
 
 public static class ImageExtension
 {

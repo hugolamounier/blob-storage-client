@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace Core.BlobStorageClient.Models;
+namespace Core.BlobStorage.Client.Models;
 
 public class BlobFile
 {

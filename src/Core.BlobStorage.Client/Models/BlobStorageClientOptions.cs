@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.BlobStorageClient.Models;
+namespace Core.BlobStorage.Client.Models;
 
 /// <summary>
 /// The options to be used by <see cref="BlobStorageClient" />.

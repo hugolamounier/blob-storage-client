@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.BlobStorageClient", "src\Core.BlobStorageClient\Core.BlobStorageClient.csproj", "{0D9E951F-9ED5-451A-9810-691259BD96DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.BlobStorage.Client", "src\Core.BlobStorage.Client\Core.BlobStorage.Client.csproj", "{0D9E951F-9ED5-451A-9810-691259BD96DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

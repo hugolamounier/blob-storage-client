@@ -8,11 +8,11 @@ using System.Threading.Tasks.Dataflow;
 using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using Core.BlobStorageClient.Interfaces;
-using Core.BlobStorageClient.Models;
+using Core.BlobStorage.Client.Interfaces;
+using Core.BlobStorage.Client.Models;
 using Microsoft.Extensions.Options;
 
-namespace Core.BlobStorageClient;
+namespace Core.BlobStorage.Client;
 
 public class BlobStorageClient: IBlobStorageClient
 {
