@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.BlobStorage.Client.Extensions;
 
+/// <summary>
+/// Add Blob Storage Client to the specified <see cref="IServiceCollection" />.
+/// </summary>
 public static class BlobStorageClientServiceCollectionExtensions
 {
     public static IServiceCollection AddBlobStorageClient([NotNull] this IServiceCollection services, Action<BlobStorageClientOptions> setupAction)
